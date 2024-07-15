@@ -85,6 +85,8 @@ pub enum PresentAction {
     #[allow(non_camel_case_types)]
     Unknown_0x05,
     #[allow(non_camel_case_types)]
+    Unknown_0x06,
+    #[allow(non_camel_case_types)]
     Unknown_0x18,
 }
 
@@ -148,6 +150,7 @@ impl<'a> StringToken<'_> {
             0x03 => Ok((i, StringToken::Present(PresentAction::None))),
             0x04 => parse(i, Expr::parse, StringToken::Color),
             0x05 => Ok((i, StringToken::Present(PresentAction::Unknown_0x05))),
+            0x06 => Ok((i, StringToken::Present(PresentAction::Unknown_0x06))),
             0x08 => Ok((i, StringToken::Present(PresentAction::ResetAlignment))),
             0x09 => Ok((i, StringToken::RubyBaseStart)),
             0x0A => Ok((i, StringToken::RubyTextStart)),
@@ -186,6 +189,7 @@ impl<'a> StringToken<'_> {
             StringToken::Present(PresentAction::None) => 0x03,
             StringToken::Color(_) => 0x04,
             StringToken::Present(PresentAction::Unknown_0x05) => 0x05,
+            StringToken::Present(PresentAction::Unknown_0x06) => 0x06,
             StringToken::Present(PresentAction::ResetAlignment) => 0x08,
             StringToken::RubyBaseStart => 0x09,
             StringToken::RubyTextStart => 0x0A,

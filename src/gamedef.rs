@@ -25,6 +25,7 @@ pub enum Game {
     SteinsGate0,
     ChaosChildLoveChuChu,
     RoboticsNotesDash,
+    IwakuraAria,
 }
 
 lazy_static! {
@@ -92,6 +93,14 @@ lazy_static! {
             &["rnd", "roboticsnotesdash"],
             None,
             vec!['\'']
+        ),
+        GameDef::new(
+            Game::IwakuraAria,
+            "Iwakura Aria",
+            "ia",
+            &["ia", "iwakuraaria"],
+            None,
+            vec![]
         ),
     ];
 }
